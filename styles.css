@@ -1,0 +1,133 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f4f8;
+  color: #222;
+  line-height: 1.5;
+}
+
+header {
+  background: linear-gradient(135deg, #2d3a8c, #8e44ad);
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+header h1 { margin: 0 0 10px; }
+
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.seccion {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  border-top: 4px solid #2d3a8c;
+}
+
+.seccion h2 {
+  margin-top: 0;
+  color: #2d3a8c;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 8px;
+}
+
+.premium {
+  background: linear-gradient(135deg, #fff8e1, #ffe082);
+  border-top-color: #f9a825;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: #fafaff;
+  border: 1px solid #dde;
+  border-radius: 10px;
+  padding: 14px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(45, 58, 140, 0.25);
+}
+
+.card h3 { margin: 0 0 6px; }
+.card p { margin: 4px 0; font-size: 14px; }
+
+.etiqueta {
+  display: inline-block;
+  background: #8e44ad;
+  color: white;
+  border-radius: 20px;
+  padding: 2px 10px;
+  font-size: 12px !important;
+}
+
+.nota { font-weight: bold; }
+
+.stats {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.stat {
+  flex: 1;
+  min-width: 140px;
+  text-align: center;
+  background: #eef0ff;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.stat span {
+  display: block;
+  font-size: 30px;
+  font-weight: bold;
+  color: #2d3a8c;
+}
+
+footer {
+  background: #222;
+  color: #ddd;
+  text-align: center;
+  padding: 20px;
+}
+
+@media (max-width: 600px) {
+  header { padding: 25px 12px; }
+  main { padding: 12px; }
+}
+
+/* para que las líneas largas no se salgan en móvil */
+.seccion p { overflow-wrap: anywhere; }
+
+select, input, button {
+  font-size: 15px;
+  padding: 8px 12px;
+  margin: 0 8px 12px 0;
+  border: 1px solid #ccd;
+  border-radius: 8px;
+}
+
+button {
+  background: #2d3a8c;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover { background: #8e44ad; }
