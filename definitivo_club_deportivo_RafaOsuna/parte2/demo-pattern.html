@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demo: pattern frente a JavaScript</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <script src="js/formatos.js" defer></script>
+  <script src="js/demo-pattern.js" defer></script>
+</head>
+<body>
+<header class="cabecera">
+  <h1>Demo: pattern frente a JavaScript</h1>
+  <p>Aquí sí se usa la validación nativa del navegador. Independiente de los cinco formularios.</p>
+  <nav aria-label="Navegación"><a href="index.html">Volver a los formularios</a></nav>
+</header>
+
+<main>
+  <section aria-labelledby="titulo-demo">
+    <h2 id="titulo-demo">Código de servicio DEP-007</h2>
+
+    <form id="demo-form">
+      <label for="demo-codigo">Campo obligatorio: required + pattern</label>
+      <input id="demo-codigo" name="codigo" type="text" required
+        pattern="DEP-[0-9]{3}" title="DEP- y tres cifras, por ejemplo DEP-007">
+
+      <label for="demo-opcional">Campo opcional: solo pattern (sin required)</label>
+      <input id="demo-opcional" name="opcional" type="text"
+        pattern="DEP-[0-9]{3}" title="DEP- y tres cifras, por ejemplo DEP-007">
+
+      <button type="submit">Enviar con validación nativa</button>
+      <button type="button" id="demo-comparar" class="secundario">Comparar nativa y JavaScript</button>
+    </form>
+
+    <div id="demo-salida" class="comparacion" role="status" aria-live="polite">
+      <p>Escribe un valor y pulsa «Comparar». Prueba: vacío, DEP-007, DEP-007x, XDEP-007, dep-007.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="titulo-notas">
+    <h2 id="titulo-notas">Qué enseña esta demo</h2>
+    <ul>
+      <li>pattern se comprueba contra el valor completo, aunque no lleve ^ ni $.</li>
+      <li>Un campo vacío no falla por pattern: hace falta required (ver el campo opcional).</li>
+      <li>pattern no sabe nada de tamaño de archivos, edades ni fechas futuras: esas reglas necesitan JavaScript.</li>
+      <li>El patrón se escribe sin las barras / / y sin banderas.</li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>

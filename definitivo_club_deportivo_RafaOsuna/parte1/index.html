@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Club deportivo · Parte 1</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <script src="js/validadores.js" defer></script>
+  <script src="js/fechas.js" defer></script>
+  <script src="js/interfaz.js" defer></script>
+  <script src="js/formulario.js" defer></script>
+  <script src="js/socios.js" defer></script>
+  <script src="js/servicios.js" defer></script>
+  <script src="js/testimonios.js" defer></script>
+  <script src="js/noticias.js" defer></script>
+  <script src="js/citas.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+<header class="cabecera">
+  <h1>Club deportivo: formularios fiables</h1>
+  <p>Parte 1 · Todo es una simulación con datos ficticios. No se guarda ni se envía nada.</p>
+  <nav aria-label="Formularios">
+    <a href="#seccion-socios">Socios</a>
+    <a href="#seccion-servicios">Servicios</a>
+    <a href="#seccion-testimonios">Testimonios</a>
+    <a href="#seccion-noticias">Noticias</a>
+    <a href="#seccion-citas">Citas</a>
+  </nav>
+</header>
+
+<main>
+  <section id="seccion-socios" aria-labelledby="titulo-socios">
+    <h2 id="titulo-socios">Alta de socios</h2>
+    <form id="form-socios" novalidate>
+      <label for="socio-nombre">Nombre completo (4 a 50 caracteres)</label>
+      <input id="socio-nombre" name="nombre" type="text" autocomplete="name"
+        required minlength="4" maxlength="50" aria-describedby="error-socio-nombre">
+      <p id="error-socio-nombre" class="error"></p>
+
+      <label for="socio-usuario">Usuario (5 a 20 caracteres)</label>
+      <input id="socio-usuario" name="usuario" type="text" autocomplete="username"
+        required minlength="5" maxlength="20" aria-describedby="error-socio-usuario">
+      <p id="error-socio-usuario" class="error"></p>
+
+      <label for="socio-correo">Correo electrónico</label>
+      <input id="socio-correo" name="correo" type="email" autocomplete="email"
+        required aria-describedby="error-socio-correo">
+      <p id="error-socio-correo" class="error"></p>
+
+      <label for="socio-edad">Edad (entero entre 18 y 100)</label>
+      <input id="socio-edad" name="edad" type="number" inputmode="numeric"
+        required min="18" max="100" step="1" aria-describedby="error-socio-edad">
+      <p id="error-socio-edad" class="error"></p>
+
+      <fieldset id="socio-modalidad" role="radiogroup" aria-describedby="error-socio-modalidad">
+        <legend>Modalidad</legend>
+        <div class="opcion">
+          <input id="socio-modalidad-mensual" name="modalidad" type="radio" value="mensual" required>
+          <label for="socio-modalidad-mensual">Mensual</label>
+        </div>
+        <div class="opcion">
+          <input id="socio-modalidad-anual" name="modalidad" type="radio" value="anual" required>
+          <label for="socio-modalidad-anual">Anual</label>
+        </div>
+      </fieldset>
+      <p id="error-socio-modalidad" class="error"></p>
+
+      <label for="socio-contrasena">Contraseña (8 a 16 caracteres)</label>
+      <input id="socio-contrasena" name="contrasena" type="password" autocomplete="new-password"
+        required minlength="8" maxlength="16" aria-describedby="error-socio-contrasena">
+      <p id="error-socio-contrasena" class="error"></p>
+
+      <label for="socio-confirmacion">Confirmar contraseña</label>
+      <input id="socio-confirmacion" name="confirmacion" type="password" autocomplete="new-password"
+        required aria-describedby="error-socio-confirmacion">
+      <p id="error-socio-confirmacion" class="error"></p>
+
+      <label for="socio-telefono">Teléfono</label>
+      <input id="socio-telefono" name="telefono" type="tel" autocomplete="tel"
+        required aria-describedby="error-socio-telefono">
+      <p id="error-socio-telefono" class="error"></p>
+
+      <label for="socio-foto">Foto de perfil (JPEG, máximo 5.000.000 bytes)</label>
+      <input id="socio-foto" name="foto" type="file" accept="image/jpeg"
+        required aria-describedby="error-socio-foto">
+      <p id="error-socio-foto" class="error"></p>
+
+      <div class="opcion">
+        <input id="socio-condiciones" name="condiciones" type="checkbox" value="aceptadas"
+          required aria-describedby="error-socio-condiciones">
+        <label for="socio-condiciones">Acepto las condiciones del club</label>
+      </div>
+      <p id="error-socio-condiciones" class="error"></p>
+
+      <button type="submit">Comprobar alta</button>
+    </form>
+    <div id="estado-socios" class="estado" role="status" aria-live="polite"></div>
+  </section>
+
+  <section id="seccion-servicios" aria-labelledby="titulo-servicios">
+    <h2 id="titulo-servicios">Servicios</h2>
+    <form id="form-servicios" novalidate>
+      <label for="serv-nombre">Nombre del servicio (3 a 50 caracteres)</label>
+      <input id="serv-nombre" name="nombre" type="text"
+        required minlength="3" maxlength="50" aria-describedby="error-serv-nombre">
+      <p id="error-serv-nombre" class="error"></p>
+
+      <label for="serv-duracion">Duración en minutos (15, 30, 45...)</label>
+      <input id="serv-duracion" name="duracion" type="number" inputmode="numeric"
+        required min="15" step="15" aria-describedby="error-serv-duracion">
+      <p id="error-serv-duracion" class="error"></p>
+
+      <label for="serv-precio">Precio en euros (de 0 a 9999,99)</label>
+      <input id="serv-precio" name="precio" type="number" inputmode="decimal"
+        required min="0" max="9999.99" step="0.01" aria-describedby="error-serv-precio">
+      <p id="error-serv-precio" class="error"></p>
+
+      <label for="serv-categoria">Categoría</label>
+      <select id="serv-categoria" name="categoria" required aria-describedby="error-serv-categoria">
+        <option value="">Seleccionar categoría</option>
+        <option value="fitness">Fitness</option>
+        <option value="piscina">Piscina</option>
+        <option value="bienestar">Bienestar</option>
+      </select>
+      <p id="error-serv-categoria" class="error"></p>
+
+      <button type="submit">Comprobar servicio</button>
+    </form>
+    <div id="estado-servicios" class="estado" role="status" aria-live="polite"></div>
+  </section>
+
+  <section id="seccion-testimonios" aria-labelledby="titulo-testimonios">
+    <h2 id="titulo-testimonios">Testimonios</h2>
+    <form id="form-testimonios" novalidate>
+      <label for="test-autor">Autor (2 a 50 caracteres)</label>
+      <input id="test-autor" name="autor" type="text" autocomplete="name"
+        required minlength="2" maxlength="50" aria-describedby="error-test-autor">
+      <p id="error-test-autor" class="error"></p>
+
+      <label for="test-texto">Testimonio (10 a 500 caracteres)</label>
+      <textarea id="test-texto" name="testimonio" rows="5"
+        required minlength="10" maxlength="500"
+        aria-describedby="contador-test-texto error-test-texto"></textarea>
+      <p id="contador-test-texto" class="contador">0 / 500 caracteres</p>
+      <p id="error-test-texto" class="error"></p>
+
+      <div class="opcion">
+        <input id="test-publicar" name="publicar" type="checkbox" value="si">
+        <label for="test-publicar">Autorizo su publicación</label>
+      </div>
+
+      <button type="submit">Comprobar testimonio</button>
+    </form>
+    <div id="estado-testimonios" class="estado" role="status" aria-live="polite"></div>
+  </section>
+
+  <section id="seccion-noticias" aria-labelledby="titulo-noticias">
+    <h2 id="titulo-noticias">Noticias</h2>
+    <form id="form-noticias" novalidate>
+      <label for="not-titulo">Título (3 a 100 caracteres)</label>
+      <input id="not-titulo" name="titulo" type="text"
+        required minlength="3" maxlength="100" aria-describedby="error-not-titulo">
+      <p id="error-not-titulo" class="error"></p>
+
+      <label for="not-contenido">Contenido (20 a 2000 caracteres)</label>
+      <textarea id="not-contenido" name="contenido" rows="5"
+        required minlength="20" maxlength="2000" aria-describedby="error-not-contenido"></textarea>
+      <p id="error-not-contenido" class="error"></p>
+
+      <label for="not-fecha">Fecha de publicación (posterior a hoy)</label>
+      <input id="not-fecha" name="fecha" type="date" required aria-describedby="error-not-fecha">
+      <p id="error-not-fecha" class="error"></p>
+
+      <label for="not-imagen">Imagen (JPEG, máximo 5.000.000 bytes)</label>
+      <input id="not-imagen" name="imagen" type="file" accept="image/jpeg"
+        required aria-describedby="error-not-imagen">
+      <p id="error-not-imagen" class="error"></p>
+
+      <button type="submit">Comprobar noticia</button>
+    </form>
+    <div id="estado-noticias" class="estado" role="status" aria-live="polite"></div>
+  </section>
+
+  <section id="seccion-citas" aria-labelledby="titulo-citas">
+    <h2 id="titulo-citas">Citas</h2>
+    <form id="form-citas" novalidate>
+      <label for="cita-socio">Socio</label>
+      <select id="cita-socio" name="socio" required aria-describedby="error-cita-socio">
+        <option value="">Seleccionar socio</option>
+        <option value="S-001">Laura Prueba</option>
+        <option value="S-002">Marcos Ejemplo</option>
+        <option value="S-003">Irene Demo</option>
+      </select>
+      <p id="error-cita-socio" class="error"></p>
+
+      <label for="cita-servicio">Servicio</label>
+      <select id="cita-servicio" name="servicio" required aria-describedby="error-cita-servicio">
+        <option value="">Seleccionar servicio</option>
+        <option value="yoga">Yoga</option>
+        <option value="natacion">Natación</option>
+        <option value="spinning">Spinning</option>
+      </select>
+      <p id="error-cita-servicio" class="error"></p>
+
+      <label for="cita-fecha">Fecha y hora (posterior al momento actual)</label>
+      <input id="cita-fecha" name="fecha" type="datetime-local" required
+        aria-describedby="error-cita-fecha">
+      <p id="error-cita-fecha" class="error"></p>
+
+      <div class="opcion">
+        <input id="cita-confirmo" name="confirmo" type="checkbox" value="revisado"
+          required aria-describedby="error-cita-confirmo">
+        <label for="cita-confirmo">He revisado los datos de la cita</label>
+      </div>
+      <p id="error-cita-confirmo" class="error"></p>
+
+      <button type="submit">Comprobar cita</button>
+    </form>
+    <div id="estado-citas" class="estado" role="status" aria-live="polite"></div>
+  </section>
+</main>
+</body>
+</html>
